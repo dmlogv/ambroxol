@@ -1,0 +1,11 @@
+#!/bin/sh
+
+IN="${1:-/dev/stdin}"
+OUT="${2:-/dev/stdout}"
+
+> $OUT
+
+while read line
+do
+    echo "$line" | sed 's/#.*$//' | xxd -r -p >> $OUT
+done < $IN
