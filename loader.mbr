@@ -1,5 +1,9 @@
 # 0x0000:0x007F (0-127)
-00 00 00 00 00 00 00 00
+B4 0E                      # Set a console output mode
+B0 23                      # Set an octothorp sign
+CD 10                      # Call a print function
+
+00 00
 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00
