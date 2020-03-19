@@ -1,8 +1,15 @@
 # 0x0000:0x007F (0-127)
-B4 0E    # Set a console output mode
+B4 0E             # Set a console output mode
 
-00 00 00 00 00 00 
-00 00 00 00 00 00 00 00
+BE 80 7C          # Place 0x0080 + 0x7c00 = 0x7c80 into SI
+AC                # Load a byte at address SI into AL, increment SI
+3C 00             # AL == 00?
+74 06             # If yes, go to +6 bytes (to zeroes)
+CD 10             # Print a char in AL
+EB F7             # Go to -7 bytes (to AC opcode)
+
+
+00 00
 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00
 00 00 00 00 00 00 00 00
