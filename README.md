@@ -30,7 +30,7 @@ $ xxd sector.bin
 
 ## Loaders
 
-### `printer.mbr`
+### A simple string printer in the `printer.mbr`
 
 `printer.mbr` is a simple example of the MBR code execution.
 
@@ -40,3 +40,41 @@ File contains:
 - A binary code (x86 opcodes) with a loop extracting characters
   from data block and printing it using `INT 10h` BIOS function.
   
+
+## Usage
+### How to build
+
+```sh
+$ ./build printer.mbr printer.img && stat -f %z printer.img
+512
+```
+
+`512` -- is a valid MBR size. Otherwise you've got a corrupted file :(
+
+
+### How to test
+
+You need to use QEMU or any other emulator or VM able to use 
+`.img` or `.bin` disk images.
+
+```sh
+$ qemu-system-i386 -nic none printer.img
+```
+
+> `-nic none` option disables network interfaces
+
+
+### How to use on hardware
+
+Just write a USB-drive using `dd`:
+
+```sh
+$ dd if=printer.mbr of=/dev/sdb
+```
+
+> Of course you need to find a valid path of your USB-drive.
+
+> Of course you have not to use partition path (e. g. `/dev/sdb1`) instead of devices path.
+
+Then plug a drive into your x86-compatible device and boot it using USB.
+
