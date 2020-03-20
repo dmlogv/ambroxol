@@ -3,7 +3,7 @@
 Funny MBR experiments
 
 
-# Builder
+## Builder
 
 Use `./builder` to transform an opcode file with comments like this:
 
@@ -27,3 +27,16 @@ $ xxd sector.bin
 00000010: 276d 9fc9                                'm..
 ```
 
+
+## Loaders
+
+### `printer.mbr`
+
+`printer.mbr` is a simple example of the MBR code execution.
+
+File contains:
+
+- A fixed string at `0x0080` that will be print
+- A binary code (x86 opcodes) with a loop extracting characters
+  from data block and printing it using `INT 10h` BIOS function.
+  
