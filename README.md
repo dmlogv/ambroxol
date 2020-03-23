@@ -39,6 +39,18 @@ File contains:
 - A fixed string at `0x0080` that will be print
 - A binary code (x86 opcodes) with a loop extracting characters
   from data block and printing it using `INT 10h` BIOS function.
+
+
+### A useless typewriter in the `typewriter.mbr`
+
+`typewriter.mbr` contains an example of the keyboard input processing.
+
+It can:
+
+- Print pressed characters in a loop.
+- Process a `Return`/`Enter` key to create a new line.
+- Process a `Backspace` key to return to previous character 
+  (except new line :)) and replace it with another one.
   
 
 ## Usage
