@@ -6,7 +6,7 @@ CD 10   #
 B4 00   # Set Get keystroke mode
 CD 16   # Read a char -> AL
 
-3C 0D   # AL == 1E? (CR, Return pressed)
+3C 0D   # AL == 0D? (CR, Return pressed)
 75 06   # If no, go to +6 bytes
 
 B4 0E   # Print CR
