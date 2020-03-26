@@ -41,6 +41,15 @@ File contains:
   from data block and printing it using `INT 10h` BIOS function.
 
 
+### A not very simple printer in the `color-printer.mbr`
+
+Improves:
+
+- Changes a video mode to use colored output
+- String printing in the infinite loop
+- (New!) String changing a color!
+
+
 ### A useless typewriter in the `typewriter.mbr`
 
 `typewriter.mbr` contains an example of the keyboard input processing.
@@ -51,6 +60,7 @@ It can:
 - Process a `Return`/`Enter` key to create a new line.
 - Process a `Backspace` key to return to previous character 
   (except new line :)) and replace it with another one.
+
   
 
 ## Usage
